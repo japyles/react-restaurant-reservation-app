@@ -2,3 +2,74 @@
   background-color: #393a44;
   min-width: 200px;
 }
+
+body {
+  background-image: url('https://images.unsplash.com/photo-1578643800480-7cb8e6dea0b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80');
+  background-size: cover;
+}
+
+/* .router::before {
+  content: '';
+  background-image: url('https://images.unsplash.com/photo-1578643800480-7cb8e6dea0b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80');
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.75;
+} */
+
+.dashboard {
+  color: #FAFAF8;
+}
+
+.newTable {
+  /* color: #fff5ee; */
+  color: #FAFAF8;
+}
+
+.newReservation {
+  color: #FAFAF8;
+}
+
+.search {
+  color: #FAFAF8;
+}
+
+/* .resFound {
+  color: #ff7f50;
+} */
+
+.resFound {
+  color: #ff7f50;
+}
+
+.resFound::before {
+  content: '';
+  background-image: url(../assets/oops-removebg.png);
+  background-size: cover;
+  position: absolute;
+  top: 150px;
+  right: 0px;
+  bottom: 0px;
+  left: 30px;
+  width: 173px;
+  height: 173px;
+}
+
+.reservation {
+  color: black
+}
+
+.editRes {
+  color: #FAFAF8;
+}
+
+.tables {
+  color: black;
+}
+
+.tables h1 {
+  color: #FAFAF8
+}
