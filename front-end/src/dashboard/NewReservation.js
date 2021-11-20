@@ -36,26 +36,11 @@ const NewReservation = ({ date }) => {
 
         postReservation(formData)
             .then(res => {
-                history.push(`/dashboard?data=${formData.reservation_date}`)
+                history.push(`/dashboard?date=${formData.reservation_date}`)
             }).catch((error) => {
                 console.log('Error:', error)
                 setReservationsError(error)
             })
-
-        // console.log(formData)
-
-        // setFormData({
-        //     first_name: '',
-        //     last_name: '',
-        //     mobile_number: '',
-        //     reservation_date: date,
-        //     reservation_time: '10:08',
-        //     people: 1,
-        // })
-
-        // history.goBack();
-
-        // setFormData({ formData })
     }
 
 
@@ -135,9 +120,9 @@ const NewReservation = ({ date }) => {
                         value={formData.people}
                     />
                 </label>
+                <button className='btn btn-primary mr-3 mt-4' type='submit'>Submit</button>
+                <button type='cancel' className='btn btn-secondary mt-4' onClick={() => history.goBack()}>Cancel</button>
             </form>
-            <button className=' btn btn-primary mr-3 mt-4' type='submit' onClick={handleSubmit}>Submit</button>
-            <button type='cancel' className='btn btn-secondary mt-4' onClick={() => history.goBack()}>Cancel</button>
         </div>
     )
 
