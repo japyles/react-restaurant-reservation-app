@@ -6,7 +6,7 @@ function Table ({ table, clearTable }) {
     }
 
     return (
-        <div className='card'>
+        <div className='card table mt-3'>
             <div className='card-body'>
                 <h4 className='card-title'>{table.table_name}</h4>
                 <p className='card-text'>Capacity: {table.capacity}</p>

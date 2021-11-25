@@ -19,8 +19,8 @@ function Seating () {
         const abortController = new AbortController()
 
         listTables(abortController.signal)
-            .then((pulledTables) => {
-                const updatedTables = pulledTables.map((table) => {
+            .then((allTables) => {
+                const updatedTables = allTables.map((table) => {
                     return {...table}
                 })
                 return updatedTables
@@ -34,7 +34,7 @@ function Seating () {
         return event.target.value ? setTableId(event.target.value) : setTableId(null)
     }
 
-    async function handleSubmit(event) {
+    function handleSubmit(event) {
         event.preventDefault()
         setReservationSeatingError(null)
 
@@ -50,9 +50,15 @@ function Seating () {
                 <ErrorAlert error={reservationSeatingError} />
 
                 <h3>Seating for reservation {params.reservation_id}</h3>
-                <form onsubmit={handleSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className='form-group'>
                         <label htmlFor='select_table'></label>
+                        {tables.map((table, index) => {
+                                console.log(`${table.table_name} - ${table.capacity}`)
+                                return (
+                                    <label key={index} value={table.table_id}>{table.table_name} - {table.capacity}</label>
+                                )
+                            })}
                         <select
                             onChange={handleChange}
                             className='form-control'
@@ -62,12 +68,12 @@ function Seating () {
                             <option key={0} value={0}>
                                 --- Please select an option ---
                             </option>
-                            {tables.map((table, index) => {
+                            {/* {tables.map((table, index) => {
                                 console.log(`${table.table_name} - ${table.capacity}`)
                                 return (
                                     <option key={index} value={table.table_id}>{table.table_name} - {table.capacity}</option>
                                 )
-                            })}
+                            })} */}
                         </select>
                     </div>
                     <div>

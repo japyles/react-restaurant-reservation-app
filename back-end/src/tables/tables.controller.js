@@ -3,29 +3,36 @@ const service = require('./tables.service')
 const reservationService = require('../reservations/reservations.service')
 
 const tableExists = async (req, res, next) => {
-    const { tableId } = req.params
-    const table = await service.read(tableId)
+    const { table_id } = req.params
+    console.log('table_id: ', table_id)
+    const table = await service.read(table_id)
 
     if (table) {
         res.locals.table = table
         next()
     } else {
-        next({ status: 404, message: `Table ID ${tableId} cannot be found`})
+        next({ status: 404, message: `Table ID ${table_id} cannot be found`})
     }
 }
 
 const validateTables = async (req, res, next) => {
-    const { data: { table_name, capacity }} = req.body
+    // const { data: { table_name, capacity }} = req.body
+    const tableName = req.body.data.table_name
+    const capacity = req.body.data.capacity
 
-    if (!table_name || table_name === '') {
+    if (req.body.data === '') {
+        return next({ status: 400, message: 'data missing'})
+    }
+
+    if (!tableName || tableName === '') {
         return next({ status: 400, message: 'table_name is missing'})
     }
 
     if (!capacity || capacity < 1) {
-        return next({ status: 400, message: 'Capacity must be at least 1 or more'})
+        return next({ status: 400, message: 'capacity must be at least 1 or more'})
     }
 
-    if (table_name.length < 2) {
+    if (tableName.length < 2) {
         return next({ status: 400, message: 'table_name must be longer than a single character'})
     }
 
@@ -34,7 +41,7 @@ const validateTables = async (req, res, next) => {
 
 const checkForReservation = (req, res, next) => {
     if (!res.locals.table.reservation_id) {
-        return next({ status: 400, message: 'No reservation found'})
+        return next({ status: 400, message: 'not occupied'})
     }
     next()
 }
@@ -59,7 +66,7 @@ const destroy = async (req, res) => {
 
 const removeReservation = async (req, res, next) => {
     if (!res.locals.table.reservation_id) {
-        return next({ status: 400, message: 'No reservation found'})
+        return next({ status: 400, message: 'not occupied'})
     }
 
     const table = await {...res.locals.table, reservation_id: null}
@@ -75,7 +82,7 @@ const removeReservation = async (req, res, next) => {
 
 const isTableAlreadyOccupied = (req, res, next) => {
     if (res.locals.reservation_id) {
-        return next({ status: 400, message: `Table already reserved by ${res.locals.table.reservation_id}`})
+        return next({ status: 400, message: `table already reserved by ${res.locals.table.reservation_id}`})
     }
     next()
 }
@@ -100,9 +107,11 @@ const resExists = async (req, res, next) => {
     }
 }
 
+
 const capacityCheck = async (req, res, next) => {
     if (res.locals.table.capacity < res.locals.seatingreservation.people) {
-        next({ status: 400, message: 'Table capacity insufficient for number of people on reservation'})
+        console.log('capacity: ', res.locals.table.capacity, 'people: ', res.locals.seatingreservation.people)
+        next({ status: 400, message: 'table capacity insufficient for number of people on reservation'})
     } else {
         next()
     }
@@ -112,14 +121,14 @@ const validateDataSent = async (req, res, next) => {
     const { data } = req.body
 
     if (!data || !data.reservation_id) {
-        return next({ status: 400, message: 'Data and reservation_id do not exist'})
+        return next({ status: 400, message: 'data and reservation_id do not exist'})
     }
     next()
 }
 
 const update = async (req, res) => {
     const updatedTable = await {
-        ...res.locals.table,
+        ...res.locals.table, 
         reservation_id: req.body.data.reservation_id
     }
 

@@ -19,7 +19,7 @@ function Reservation ( { reservation, loadDashboard, setReservationsError } ) {
     const cancelHandler = (reservation_id) => {
         const abortController = new AbortController()
 
-        updateReservationStatus ( reservation_id, 'cancelled', abortController.status) 
+        updateReservationStatus ( reservation_id, 'cancelled', abortController.status ) 
         .then(() => {
             return loadDashboard()
         })
@@ -29,9 +29,9 @@ function Reservation ( { reservation, loadDashboard, setReservationsError } ) {
     }
 
     return (
-        <div className='card reservation'>
+        <div className='card reservation mt-3'>
             <div className='card-body'>
-                <h3 className='card-title'>{reservation.first_name}, {reservation.last_name} Party Of: {reservation.people}</h3>
+                <h3 className='card-title'>Status: {reservation.status} - {reservation.first_name}, {reservation.last_name} Party Of: {reservation.people}</h3>
                 <div>
                     Date: {reservation.reservation_date}, Time: {reservation.reservation_time}
                 </div>
@@ -43,7 +43,7 @@ function Reservation ( { reservation, loadDashboard, setReservationsError } ) {
                 <div>
                     {reservation.status !== 'seated' ? 
                         <Link
-                            to={`/reservation/${reservation.reservation_id}/seat`}
+                            to={`/reservations/${reservation.reservation_id}/seat`}
                             className='btn btn-primary m-2'
                         >
                             Seat

@@ -1,5 +1,5 @@
 const knex = require('../db/connection')
-const reservationService = require('../reservations/reservations.service')
+// const reservationService = require('../reservations/reservations.service')
 
 function list() {
     return knex('tables')

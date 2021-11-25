@@ -27,10 +27,10 @@ function EditReservation() {
           }))
           .catch(setReservationError);
         return () => abortController.abort();
-    }, [])
+    }, [params.reservation_id])
 
     const handleSubmit = (event) => {
-        event.PreventDefault()
+        event.preventDefault()
         const abortController = new AbortController()
         editReservation(formData, params.reservation_id, abortController.signal)
             .then(() => history.push(`/dashboard?data=${formData.reservation_date}`))
@@ -46,12 +46,11 @@ function EditReservation() {
                 value = 1
                 value = Number(value)
             }
-
+        }
             setFormData({
                 ...formData,
                 [target.name]: value,
             })
-        }
     }
 
     return (
@@ -81,12 +80,12 @@ function EditReservation() {
                         className='ml-2'
                     />
                 </label>
-                <label htmlFor='mobile_phone' className='ml-3'>
+                <label htmlFor='mobile_number' className='ml-3'>
                     Enter Your Mobile Phone Number
                     <input
-                        id='mobile_phone'
+                        id='mobile_number'
                         type='tel'
-                        name='mobile_phone'
+                        name='mobile_number'
                         onChange={handleChange}
                         defaultValue={formData.mobile_number}
                         className='ml-2'
@@ -125,8 +124,9 @@ function EditReservation() {
                         className='ml-2'
                     />
                 </label>
+                <button type='submit' className='btn btn-secondary mt-4 ml-2'>Submit</button>
             </form>
-            <button type='submit' onClick={() => history.goBack()} className='btn btn-secondary mt-4 ml-2'>Submit</button>
+            
         </div>
     )
 }

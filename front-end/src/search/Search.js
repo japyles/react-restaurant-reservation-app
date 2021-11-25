@@ -38,7 +38,7 @@ function Search() {
       </form>
       {list.length ? (
         <div>
-          {list.map(res => <Reservation loadDashboard={handleSearch} reservation={res} />)}
+          {list.map(res => <Reservation key={res.reservation_id} loadDashboard={handleSearch} reservation={res} />)}
         </div>
       ) : (
         <div className='ml-3 resFound'>NO RESERVATIONS FOUND</div>

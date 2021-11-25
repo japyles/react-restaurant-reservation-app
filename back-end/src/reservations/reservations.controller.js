@@ -6,49 +6,49 @@ const service = require('./reservations.service')
  */
 
 const validateReservation = (req, res, next) => {
-  const { data: {first_name, last_name, mobile_number, reservation_date, reservation_time, people, status } = {} } = req.body
+  const { data: { first_name, last_name, mobile_number, reservation_date, reservation_time, people, status } = {} } = req.body
 
   let temp_reservation_time = reservation_time && reservation_time.replace(':', '')
   let re = /[a-zA-Z]/g
 
   if (!first_name || first_name === '' || first_name.includes(' ')) {
-    next({ status: 400, message: 'Invalid First Name'})
+    next({ status: 400, message: 'Invalid first_name'})
   }
 
   else if (!last_name || last_name === '') {
-    next({ status: 400, message: 'Invalid Last Name'})
+    next({ status: 400, message: 'Invalid last_name'})
   }
 
-  else if (!mobile_number || mobile_number.length < 7 || mobile_number === '555-555-5555') {
-    next({ status: 400, message: 'Invalid mobile phone number'})
+  else if (!mobile_number || mobile_number === '' || mobile_number.length < 7 || mobile_number === '555-555-5555') {
+    next({ status: 400, message: 'Invalid mobile_number'})
   }
 
   else if (!reservation_date || re.test(reservation_date)) {
-    next({ status: 400, message: 'Reservation date must be supplied'})
+    next({ status: 400, message: 'reservation_date must be supplied'})
   }
 
   else if (new Date(reservation_date).getDay() + 1 === 2) {
-    next({ status: 400, message: 'Closed on Tuesdays, please pick another day'})
+    next({ status: 400, message: 'closed on Tuesdays, please pick another day'})
   }
 
   else if (Date.parse(reservation_date) < Date.now()) {
-    next({ status: 400, message: 'Reservation date needs to be on a future day'})
+    next({ status: 400, message: 'reservation_date needs to be on a future day'})
   }
 
   else if (!reservation_time || re.test(temp_reservation_time)) {
-    next({ status: 400, message: 'Reservation time not supplied or is invalid'})
+    next({ status: 400, message: 'reservation_time not supplied or is invalid'})
   }
 
   else if (temp_reservation_time < 1030) {
-    next({ status: 400, message: 'Reservation time must be during opened hours'})
+    next({ status: 400, message: 'reservation_time must be during opened hours'})
   }
 
   else if (temp_reservation_time > 2130) {
-    next({ status: 400, message: 'Reservation time cannot be within an hour of close'})
+    next({ status: 400, message: 'reservation_time cannot be within an hour of close'})
   }
 
   else if (!people || people < 1) {
-    next({ status: 400, message: 'Must be at least one person for a reservation'})
+    next({ status: 400, message: 'people must be at least one for a reservation'})
   }
 
   else if (typeof req.body.data.people !== 'number') {
@@ -108,7 +108,7 @@ const create = async (req, res) => {
 
 const list = async (req, res) => {
   const { date, mobile_number } = req.query
-
+  console.log('date: ', date)
   if (date) {
     const data = await service.list(date)
     res.json({ data })
