@@ -140,11 +140,18 @@ const editReservation = async (req, res) => {
   res.status(200).json({ data: data[0]})
 }
 
+const destroy = async (req, res) => {
+  const { data: { reservation_id } = {} } = req.body
+  const data = await service.destroy(reservation_id)
+  res.status(204).json({ data })
+}
+
 module.exports = {
   list: asyncErrorBoundary(list),
   create: [validateReservation, asyncErrorBoundary(create)],
   read: [asyncErrorBoundary(reservationExists), read],
   update: [asyncErrorBoundary(reservationExists), updateValidation, asyncErrorBoundary(update)],
+  destroy,
   editReservation: [asyncErrorBoundary(reservationExists), validateReservation, asyncErrorBoundary(editReservation)],
 }
 

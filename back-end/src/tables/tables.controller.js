@@ -11,24 +11,25 @@ const tableExists = async (req, res, next) => {
         res.locals.table = table
         next()
     } else {
-        next({ status: 404, message: `Table ID ${table_id} cannot be found`})
+        next({ status: 404, message: `Table ID ${table_id} cannot be found` })
     }
 }
 
-const validateTables = async (req, res, next) => {
+const validateTables = (req, res, next) => {
     // const { data: { table_name, capacity }} = req.body
-    const tableName = req.body.data.table_name
-    const capacity = req.body.data.capacity
+    const { data = {} } = req.body
+    const tableName = data.table_name
+    const capacity = data.capacity
 
-    if (req.body.data === '') {
-        return next({ status: 400, message: 'data missing'})
+    if ( !data ) {
+        return next({ status: 400, message: 'data is missing'})
     }
 
-    if (!tableName || tableName === '') {
+    if (!tableName) {
         return next({ status: 400, message: 'table_name is missing'})
     }
 
-    if (!capacity || capacity < 1) {
+    if (!capacity || !Number.isInteger(capacity) || capacity < 1) {
         return next({ status: 400, message: 'capacity must be at least 1 or more'})
     }
 
@@ -59,7 +60,7 @@ const list = async (req, res) => {
 const destroy = async (req, res) => {
     const {data: { table_id } = {} } = req.body
     const data = await service.destroy(table_id)
-    res.status(200).json({ data })
+    res.status(204).json({ data })
     // await service.destroy(res.locals.table.table_id)
     // res.status(204)
 }
@@ -81,8 +82,8 @@ const removeReservation = async (req, res, next) => {
 }
 
 const isTableAlreadyOccupied = (req, res, next) => {
-    if (res.locals.reservation_id) {
-        return next({ status: 400, message: `table already reserved by ${res.locals.table.reservation_id}`})
+    if (res.locals.table.reservation_id) {
+        return next({ status: 400, message: 'occupied' })
     }
     next()
 }

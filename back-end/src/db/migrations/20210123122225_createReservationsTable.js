@@ -8,7 +8,7 @@ exports.up = function (knex) {
     table.integer('people')
     table.date('reservation_date')
     table.time('reservation_time')
-    table.string('status')
+    table.string('status').defaultTo('booked')
   });
 };
 

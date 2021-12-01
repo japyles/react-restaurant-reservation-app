@@ -41,7 +41,7 @@ function Search() {
           {list.map(res => <Reservation key={res.reservation_id} loadDashboard={handleSearch} reservation={res} />)}
         </div>
       ) : (
-        <div className='ml-3 resFound'>NO RESERVATIONS FOUND</div>
+        <div className='ml-3 resFound'>No reservations found</div>
       )}
     </div>
   );

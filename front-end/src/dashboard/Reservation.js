@@ -8,7 +8,7 @@ function Reservation ( { reservation, loadDashboard, setReservationsError } ) {
         event.preventDefault()
 
         const confirm = window.confirm (
-            'Do you want to cancel the reservation?'
+            'Do you want to cancel this reservation?'
         )
 
         if (confirm) {

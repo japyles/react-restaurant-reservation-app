@@ -4,7 +4,7 @@ function list(reservation_date) {
     return knex('reservations')
         .select('*')
         .where({ reservation_date })
-        .whereRaw( "(status is null or status <> 'finished' or status <> 'cancelled')" )
+        .whereRaw( "(status is null or ( status <> 'finished' and status <> 'cancelled')) " )
         .orderBy('reservation_time', 'asc');
 }
 
@@ -50,6 +50,12 @@ function search(mobile_number) {
         .orderBy('reservation_date')
 }
 
+function destroy(reservation_id) {
+    return knex('reservations')
+        .where({ reservation_id })
+        .del()
+}
+
 module.exports = {
     list,
     create,
@@ -58,4 +64,5 @@ module.exports = {
     findByDateAndTime,
     read,
     search,
+    destroy,
 }

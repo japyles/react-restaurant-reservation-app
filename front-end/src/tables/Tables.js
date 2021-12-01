@@ -27,7 +27,7 @@ function Tables ({ loadDashboard, tables, tablesError }) {
             <ErrorAlert error={tablesError} />
             <h1 className='mt-5'>Tables</h1>
             <div>
-                <button className='btn btn-dark' onClick={() => history.push('/tables/new')}>New Table</button>
+                <button className='btn tableBtn' onClick={() => history.push('/tables/new')}>New Table</button>
             </div>
             <div>
                 {tables.map((table) => <Table key={table.table_id} table={table} clearTable={clearTable} />)}

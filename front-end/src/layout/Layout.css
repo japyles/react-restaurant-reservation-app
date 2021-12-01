@@ -10,14 +10,16 @@
 }
 
 .side-bar {
-  background-color: #393a44;
+  /* background-color: #393a44; */
+  background-color: #353941;
   min-width: 200px;
 }
 
 body {
   /* background-image: linear-gradient(to bottom, rgba(221, 224, 236, 0.52), rgba(37, 25, 34, 0.73)), url('https://images.unsplash.com/photo-1578643800480-7cb8e6dea0b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80'); */
-  background-image:  url('https://images.unsplash.com/photo-1578643800480-7cb8e6dea0b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80');
-  background-size: cover;
+  /* background-image:  linear-gradient(to bottom, rgba(38, 40, 43, 0.55), rgba(53, 57, 65, 0.46)), url('https://images.unsplash.com/photo-1578643800480-7cb8e6dea0b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=687&q=80'); */
+  background-color: #26283b;
+  /* background-size: cover; */
   /* text-align: center; */
   font-size: 20px;
   /* padding: 2.5%; */
@@ -66,8 +68,19 @@ h1, h2, h3, h4, h5 {
 
 .table {
   width: 25vw;
-  background-image: linear-gradient(to bottom right, #5d6b39, #6b4739);
-  color: #fafaf8;
+  /* background-image: linear-gradient(to bottom right, #5d6b39, #6b4739); */
+  /* background-color: #0ef6be; */
+  background-color: #0ea;
+  /* color: #fafaf8; */
+  /* color: #1e2528; */
+  color: #26283b;
+}
+
+.tableBtn {
+  /* background-color: #90b8f8; */
+  /* background-color: #ffd36e; */
+  background-color: #fadc44;
+  color: #26283b;
 }
 
 .newReservation {
@@ -86,7 +99,7 @@ h1, h2, h3, h4, h5 {
   color: #ff7f50;
 }
 
-.resFound::before {
+/* .resFound::before {
   content: '';
   background-image: url(../assets/oops-removebg.png);
   background-size: cover;
@@ -97,7 +110,7 @@ h1, h2, h3, h4, h5 {
   left: 30px;
   width: 173px;
   height: 173px;
-}
+} */
 
 .reservation {
   /* background-color: #6b4739; */
@@ -119,7 +132,9 @@ h1, h2, h3, h4, h5 {
   color: #FAFAF8
 }
 
-/* .prevButton {
-  background-color: #5d6b39;
-  color: #fafaf8;
-} */
+.resButton {
+  /* background-color: #5d6b39; */
+  /* background-color: #0ef6be; */
+  background-color: #fadc44;
+  color: #26283b;
+}

@@ -54,9 +54,9 @@ function Dashboard() {
         <h4 className="mb-0">Reservations for { date }</h4>
       </div>
       <div>
-        <button className='btn btn-success mr-2 prevButton' onClick={() => history.push(`/dashboard?date=${previous(date)}`)}>Previous Date</button>
-        <button className='btn btn-success mx-2' onClick={() => history.push(`/dashboard?date=${today()}`)}>Today</button>
-        <button className='btn btn-success mx-2' onClick={() => history.push(`/dashboard?date=${next(date)}`)}>Next Date</button>
+        <button className='btn mr-2 resButton' onClick={() => history.push(`/dashboard?date=${previous(date)}`)}>Previous Date</button>
+        <button className='btn mx-2 resButton' onClick={() => history.push(`/dashboard?date=${today()}`)}>Today</button>
+        <button className='btn mx-2 resButton' onClick={() => history.push(`/dashboard?date=${next(date)}`)}>Next Date</button>
       </div>
       <ErrorAlert error={reservationsError} />
       <div>

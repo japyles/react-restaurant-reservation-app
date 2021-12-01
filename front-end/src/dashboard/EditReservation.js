@@ -33,7 +33,7 @@ function EditReservation() {
         event.preventDefault()
         const abortController = new AbortController()
         editReservation(formData, params.reservation_id, abortController.signal)
-            .then(() => history.push(`/dashboard?data=${formData.reservation_date}`))
+            .then(() => history.push(`/dashboard?date=${formData.reservation_date}`))
             .catch(setReservationError)
         return () => abortController.abort()
     }
@@ -44,8 +44,9 @@ function EditReservation() {
         if (target.name === 'people') {
             if (value < 1) {
                 value = 1
-                value = Number(value)
             }
+
+            value = Number(value)
         }
             setFormData({
                 ...formData,
@@ -125,6 +126,7 @@ function EditReservation() {
                     />
                 </label>
                 <button type='submit' className='btn btn-secondary mt-4 ml-2'>Submit</button>
+                <button type='cancel' className='btn btn-secondary mt-4 ml-2 onClick={() => history.goBack()}'>Cancel</button>
             </form>
             
         </div>

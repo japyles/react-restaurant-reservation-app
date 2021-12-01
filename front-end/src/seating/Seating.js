@@ -68,12 +68,12 @@ function Seating () {
                             <option key={0} value={0}>
                                 --- Please select an option ---
                             </option>
-                            {/* {tables.map((table, index) => {
+                            {tables.map((table, index) => {
                                 console.log(`${table.table_name} - ${table.capacity}`)
                                 return (
                                     <option key={index} value={table.table_id}>{table.table_name} - {table.capacity}</option>
                                 )
-                            })} */}
+                            })}
                         </select>
                     </div>
                     <div>
