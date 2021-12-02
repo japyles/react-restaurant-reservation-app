@@ -67,7 +67,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .table {
-  width: 50vw;
+  width: 26vw;
   /* background-image: linear-gradient(to bottom right, #5d6b39, #6b4739); */
   /* background-color: #0ef6be; */
   /* background-color: #0ea; */
@@ -120,7 +120,7 @@ h1, h2, h3, h4, h5 {
   background-image: linear-gradient(to bottom right, #26283b, #fadc44);
   color: #FAFAF8;
   /* color: black; */
-  width: 50vw;
+  width: 26vw;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
