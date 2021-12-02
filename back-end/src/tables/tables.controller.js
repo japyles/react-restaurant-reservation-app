@@ -29,8 +29,12 @@ const validateTables = (req, res, next) => {
         return next({ status: 400, message: 'table_name is missing'})
     }
 
-    if (!capacity || !Number.isInteger(capacity) || capacity < 1) {
+    if (!capacity || capacity < 1) {
         return next({ status: 400, message: 'capacity must be at least 1 or more'})
+    }
+
+    if (typeof capacity !== 'number') {
+        return next({ status: 400, message: 'capacity must be a number'})
     }
 
     if (tableName.length < 2) {

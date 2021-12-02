@@ -13,7 +13,11 @@ function NewTable() {
     const handleChange = ({ target }) => {
         let value = target.value
         if (target.name === 'capacity') {
-            if (value < 1) value = 1
+            if (value < 1) {
+                value = 1
+            }
+
+            value = Number(value)
         }
         setFormData({
             ...formData,
@@ -61,9 +65,9 @@ function NewTable() {
                         required
                     />
                 </label>
+                <button type='submit' className='btn btn-primary mr-3 mt-4'>Submit</button>
+                <button type='cancel' className='btn btn-secondary mt-4' onClick={() => history.goBack()}>Cancel</button>
             </form>
-            <button type='submit' className='btn btn-primary mr-3 mt-4' onClick={handleSubmit}>Submit</button>
-            <button type='cancel' className='btn btn-secondary mt-4' onClick={() => history.goBack()}>Cancel</button>
         </div>
     )
 }

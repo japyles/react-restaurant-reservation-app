@@ -44,18 +44,18 @@ function Reservation ( { reservation, loadDashboard, setReservationsError } ) {
                     {reservation.status !== 'seated' ? 
                         <Link
                             to={`/reservations/${reservation.reservation_id}/seat`}
-                            className='btn btn-primary m-2'
+                            className='btn seatBtn cardBtn m-2'
                         >
                             Seat
                         </Link> : ''}
                     <Link 
                         to={`/reservations/${reservation.reservation_id}/edit`} 
-                        className='btn btn-secondary m-2'
+                        className='btn m-2 editBtn cardBtn'
                     >
                         Edit
                     </Link>
                     <button
-                        className='btn btn-danger m-2'
+                        className='btn cancelBtn m-2 cardBtn'
                         data-reservation-id-cancel={reservation.reservation_id}
                         onClick={handleCancel}
                     >
