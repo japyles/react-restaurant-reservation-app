@@ -37,13 +37,12 @@ function NewTable() {
 
     return (
         <div className='newTable'>
-            <h1 className='mt-3 mb-3'>New Table</h1>
+            <h1>New Table</h1>
             <ErrorAlert error={tableError} />
             <form onSubmit={handleSubmit}>
                 <label htmlFor='table_name'>
                     Enter the Table's Name:
                     <input
-                        className='ml-2 mb-3'
                         id='table_name'
                         type='text'
                         name='table_name'
@@ -56,7 +55,6 @@ function NewTable() {
                 <label htmlFor='capacity'>
                     Enter Table's Capacity:
                     <input
-                        className='ml-3'
                         id='capacity'
                         type='number'
                         name='capacity'
@@ -65,8 +63,10 @@ function NewTable() {
                         required
                     />
                 </label>
-                <button type='submit' className='btn btn-primary mr-3 mt-4'>Submit</button>
-                <button type='cancel' className='btn btn-secondary mt-4' onClick={() => history.goBack()}>Cancel</button>
+                <div className='newTableBtns'>
+                    <button type='submit' className='btn submitBtn'>Submit<span></span></button>
+                    <button type='cancel' className='btn cancelBtn' onClick={() => history.push(`/dashboard`)}>Cancel<span></span></button>
+                </div>
             </form>
         </div>
     )

@@ -22,26 +22,25 @@ function Search() {
   return (
     <div className='search'>
       <ErrorAlert error={error} />
-      <h2 className='mt-3 ml-3'>Search</h2>
+      <h2>Search</h2>
       <form name='reservation' onSubmit={handleSearch}>
         <input
-          className='ml-3'
           type='text'
           name='mobile_number'
           placeholder='Enter phone number'
           onChange={handleChange}
           value={mobileNumber}
         ></input>
-        <button type='submit' className='btn btn-info m-2'>
+        <button type='submit' className='btn searchBtn'>
           Find
-        </button>
+        <span></span></button>
       </form>
       {list.length ? (
         <div>
           {list.map(res => <Reservation key={res.reservation_id} loadDashboard={handleSearch} reservation={res} />)}
         </div>
       ) : (
-        <div className='ml-3 resFound'>No reservations found</div>
+        <div className='resFound'>No reservations found</div>
       )}
     </div>
   );

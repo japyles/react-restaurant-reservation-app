@@ -45,20 +45,22 @@ function Seating () {
 
     if (tables) {
         return (
-            <main>
+            <main className='seating'>
                 <ErrorAlert error={tablesError} />
                 <ErrorAlert error={reservationSeatingError} />
 
                 <h3>Seating for reservation {params.reservation_id}</h3>
                 <form onSubmit={handleSubmit}>
-                    <div className='form-group'>
+                    <div className='form-group tableList'>
                         <label htmlFor='select_table'></label>
+                        <h3>Tables</h3>
+
                         {tables.map((table, index) => {
-                                console.log(`${table.table_name} - ${table.capacity}`)
                                 return (
                                     <label key={index} value={table.table_id}>{table.table_name} - {table.capacity}</label>
                                 )
                             })}
+
                         <select
                             onChange={handleChange}
                             className='form-control'
@@ -76,9 +78,9 @@ function Seating () {
                             })}
                         </select>
                     </div>
-                    <div>
-                        <button className='btn btn-secondary m-2' type='submit'>Submit</button>
-                        <button onClick={() => history.goBack()} className='btn btn-danger'>Cancel</button>
+                    <div className='seatSetBtns'>
+                        <button className='btn submitBtn' type='submit'>Submit<span></span></button>
+                        <button onClick={() => history.goBack()} className='btn cancelBtn'>Cancel<span></span></button>
                     </div>
                 </form>
             </main>

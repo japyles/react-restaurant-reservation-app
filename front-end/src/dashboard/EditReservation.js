@@ -59,74 +59,92 @@ function EditReservation() {
             <h1>Edit Reservations</h1>
             <ErrorAlert error={reservationError} />
             <form onSubmit={handleSubmit}>
-                <label htmlFor='first_name'>
-                    Enter Your First Name
-                    <input
-                        id='first_name'
-                        type='text'
-                        name='first_name'
-                        onChange={handleChange}
-                        defaultValue={formData.first_name}
-                        className='ml-2'
-                    />
-                </label>
-                <label htmlFor='last_name' className='ml-3'>
-                    Enter Your Last Name
-                    <input
-                        id='last_name'
-                        type='text'
-                        name='last_name'
-                        onChange={handleChange}
-                        defaultValue={formData.last_name}
-                        className='ml-2'
-                    />
-                </label>
-                <label htmlFor='mobile_number' className='ml-3'>
-                    Enter Your Mobile Phone Number
-                    <input
-                        id='mobile_number'
-                        type='tel'
-                        name='mobile_number'
-                        onChange={handleChange}
-                        defaultValue={formData.mobile_number}
-                        className='ml-2'
-                    />
-                </label>
-                <label htmlFor='reservation_date' className='ml-3'>
-                    Select Reservation Date
-                    <input
-                        id='reservation_date'
-                        type='date'
-                        name='reservation_date'
-                        onChange={handleChange}
-                        defaultValue={formData.reservation_date}
-                        className='ml-2'
-                    />
-                </label>
-                <label htmlFor='reservation_time' className='ml-3'>
-                    Select Reservation Time
-                    <input
-                        id='reservation_time'
-                        type='time'
-                        name='reservation_time'
-                        onChange={handleChange}
-                        defaultValue={formData.reservation_time}
-                        className='ml-2'
-                    />
-                </label>
-                <label htmlFor='people' className='ml-3'>
-                    Number of Guests
-                    <input
-                        id='people'
-                        type='number'
-                        name='people'
-                        onChange={handleChange}
-                        defaultValue={formData.people}
-                        className='ml-2'
-                    />
-                </label>
-                <button type='submit' className='btn btn-secondary mt-4 ml-2'>Submit</button>
-                <button type='cancel' className='btn btn-secondary mt-4 ml-2 onClick={() => history.goBack()}'>Cancel</button>
+                <div className='name'>
+                    <div className='firstName'>
+                        <label htmlFor='first_name'>
+                            First Name
+                            <input
+                                id='first_name'
+                                type='text'
+                                name='first_name'
+                                onChange={handleChange}
+                                defaultValue={formData.first_name}
+                                placeholder='First Name'
+                            />
+                        </label>
+                        <label htmlFor='last_name' className='lastName'>
+                            Last Name
+                            <input
+                                id='last_name'
+                                type='text'
+                                name='last_name'
+                                onChange={handleChange}
+                                defaultValue={formData.last_name}
+                                placeholder='Last Name'
+                            />
+                        </label>
+                    </div>
+                </div>
+                
+                
+                <div className='mobileNumber'>
+                    <label htmlFor='mobile_number'>
+                        Mobile Phone Number
+                        <input
+                            id='mobile_number'
+                            type='tel'
+                            name='mobile_number'
+                            onChange={handleChange}
+                            defaultValue={formData.mobile_number}
+                            placeholder='Mobile Number'
+                        />
+                    </label>
+                </div>
+
+                <div className='reservationInfo'>
+                    <div className='resDate'>
+                        <label htmlFor='reservation_date'>
+                            Select Reservation Date
+                            <input
+                                id='reservation_date'
+                                type='date'
+                                name='reservation_date'
+                                onChange={handleChange}
+                                defaultValue={formData.reservation_date}
+                            />
+                        </label>
+                    </div>
+                    <div className='resTime'>
+                        <label htmlFor='reservation_time'>
+                            Select Reservation Time
+                            <input
+                                id='reservation_time'
+                                type='time'
+                                name='reservation_time'
+                                onChange={handleChange}
+                                defaultValue={formData.reservation_time}
+                            />
+                        </label>
+                    </div>
+                </div>
+
+                <div className='numberPeople'>
+                    <label htmlFor='people'>
+                        Number of Guests
+                        <input
+                            id='people'
+                            type='number'
+                            name='people'
+                            onChange={handleChange}
+                            defaultValue={formData.people}
+                        />
+                    </label>
+                </div>
+                
+                <div className='editResBtn'>
+                    <button type='submit' className='btn submitBtn'>Submit<span></span></button>
+                    <button type='cancel' className='btn cancelBtn' onClick={() => history.goBack()}>Cancel<span></span></button>
+                </div>
             </form>
             
         </div>

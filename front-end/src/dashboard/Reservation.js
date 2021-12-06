@@ -29,7 +29,7 @@ function Reservation ( { reservation, loadDashboard, setReservationsError } ) {
     }
 
     return (
-        <div className='card reservation mt-3'>
+        <div className='card reservation'>
             <div className='card-body'>
                 <h3 className='card-title'>Status: {reservation.status} - {reservation.first_name}, {reservation.last_name} Party Of: {reservation.people}</h3>
                 <div>
@@ -40,27 +40,27 @@ function Reservation ( { reservation, loadDashboard, setReservationsError } ) {
                 </div>
                 <p className='card-text'>{reservation.mobile_number}</p>
                 <p className='card-text'>{reservation.reservation_time}</p>
-                <div>
+                <div className='groupCardBtns'>
                     {reservation.status !== 'seated' ? 
                         <Link
                             to={`/reservations/${reservation.reservation_id}/seat`}
-                            className='btn seatBtn cardBtn m-2'
+                            className='btn seatBtn cardBtn'
                         >
                             Seat
-                        </Link> : ''}
+                        <span></span></Link> : ''}
                     <Link 
                         to={`/reservations/${reservation.reservation_id}/edit`} 
-                        className='btn m-2 editBtn cardBtn'
+                        className='btn editBtn cardBtn'
                     >
                         Edit
-                    </Link>
+                    <span></span></Link>
                     <button
-                        className='btn cancelBtn m-2 cardBtn'
+                        className='btn cancelBtn cardBtn'
                         data-reservation-id-cancel={reservation.reservation_id}
                         onClick={handleCancel}
                     >
                         Cancel
-                    </button>
+                    <span></span></button>
                 </div>
             </div>
         </div>

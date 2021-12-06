@@ -52,7 +52,6 @@ const NewReservation = ({ date }) => {
                 <label htmlFor='first_name'>
                     Enter Your First Name:
                     <input 
-                        className='ml-2'
                         id='first_name'
                         type='text'
                         name='first_name'
@@ -61,10 +60,9 @@ const NewReservation = ({ date }) => {
                         required
                     />
                 </label>
-                <label htmlFor='last_name' className='ml-3'>
+                <label htmlFor='last_name'>
                     Enter Your Last Name:
                     <input 
-                        className='ml-2'
                         id='last_name'
                         type='text'
                         name='last_name'
@@ -73,10 +71,9 @@ const NewReservation = ({ date }) => {
                         required
                     />
                 </label>
-                <label htmlFor='mobile_number' className='ml-3'>
+                <label htmlFor='mobile_number'>
                     Enter Mobile Phone Number:
                     <input 
-                        className='ml-2'
                         id='mobile_number'
                         type='tel'
                         name='mobile_number'
@@ -85,10 +82,9 @@ const NewReservation = ({ date }) => {
                         required
                     />
                 </label>
-                <label htmlFor='reservation_date' className='ml-3'>
+                <label htmlFor='reservation_date'>
                     Select Reservation Date
                     <input 
-                        className='ml-2 mr-3'
                         id='reservation_date'
                         type='date'
                         name='reservation_date'
@@ -97,10 +93,9 @@ const NewReservation = ({ date }) => {
                         required
                     />
                 </label>
-                <label htmlFor='reservation_time' className='ml-3'>
+                <label htmlFor='reservation_time'>
                     Select Reservation Time:
                     <input 
-                        className='ml-2'
                         id='reservation_time'
                         type='time'
                         name='reservation_time'
@@ -109,10 +104,9 @@ const NewReservation = ({ date }) => {
                         required
                     />
                 </label>
-                <label htmlFor='people' className='ml-3'>
+                <label htmlFor='people'>
                     Number of Guests:
                     <input 
-                        className='ml-2'
                         id='people'
                         type='number'
                         name='people'
@@ -120,8 +114,10 @@ const NewReservation = ({ date }) => {
                         value={formData.people}
                     />
                 </label>
-                <button className='btn btn-primary mr-3 mt-4' type='submit'>Submit</button>
-                <button type='cancel' className='btn btn-secondary mt-4' onClick={() => history.goBack()}>Cancel</button>
+                <div className='newResBtn'>
+                    <button className='btn submitBtn' type='submit'>Submit<span></span></button>
+                    <button type='cancel' className='btn cancelBtn' onClick={() => history.push(`/dashboard`)}>Cancel<span></span></button>
+                </div>
             </form>
         </div>
     )

@@ -53,10 +53,10 @@ function Dashboard() {
       <div className="d-md-flex mb-3">
         <h4 className="mb-0">Reservations for { date }</h4>
       </div>
-      <div>
-        <button className='btn mr-2 mt-4 mb-3 resButton' onClick={() => history.push(`/dashboard?date=${previous(date)}`)}>Previous Date<span></span></button>
-        <button className='btn mt-4 mb-3 ml-2 resButton' onClick={() => history.push(`/dashboard?date=${today()}`)}>Today<span></span></button>
-        <button className='btn mt-4 mb-3 ml-3 resButton' onClick={() => history.push(`/dashboard?date=${next(date)}`)}>Next Date<span></span></button>
+      <div className='dashboardBtns'>
+        <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${previous(date)}`)}>Previous Date<span></span></button>
+        <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${today()}`)}>Today<span></span></button>
+        <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${next(date)}`)}>Next Date<span></span></button>
       </div>
       <ErrorAlert error={reservationsError} />
       <div>
