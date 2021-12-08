@@ -49,22 +49,38 @@ function Dashboard() {
 
   return (
     <main className='dashboard'>
-      <h1>Dashboard</h1>
-      <div className="d-md-flex mb-3">
-        <h4 className="mb-0">Reservations for { date }</h4>
-      </div>
-      <div className='dashboardBtns'>
-        <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${previous(date)}`)}>Previous Date<span></span></button>
-        <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${today()}`)}>Today<span></span></button>
-        <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${next(date)}`)}>Next Date<span></span></button>
-      </div>
-      <ErrorAlert error={reservationsError} />
+
       <div>
-        {reservations.map((reservation) => <Reservation key={reservation.reservation_id} reservation={reservation} loadDashboard={loadDashboard} setReservationError={setReservationsError} />)}
+        <h1 className='dashTitle'>Dashboard</h1>
       </div>
-      <Tables loadDashboard={loadDashboard} tables={tables} tablesError={tablesError} />
+
+      <div className='dashboard-main'>
+        <div className='resList'>
+          <h4 className='res'>Reservations</h4>
+          <h4 className='resDate'>{ date }</h4>
+          <div className='dashboardBtns'>
+            <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${previous(date)}`)}>Previous Date<span></span></button>
+            <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${today()}`)}>Today<span></span></button>
+            <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${next(date)}`)}>Next Date<span></span></button>
+          </div>
+          <div className='resMap'>
+            {reservations.map((reservation) => <Reservation key={reservation.reservation_id} reservation={reservation} loadDashboard={loadDashboard} setReservationError={setReservationsError} />)}
+          </div>
+        </div>
+
+        <ErrorAlert error={reservationsError} />
+
+        <hr />
+
+      <div className='tableList'>
+        <Tables loadDashboard={loadDashboard} tables={tables} tablesError={tablesError} />
+      </div>
+    </div>
+      
     </main>
   );
 }
 
 export default Dashboard;
+
+

@@ -63,7 +63,7 @@ function Seating () {
 
                         <select
                             onChange={handleChange}
-                            className='form-control'
+                            className='form-control seat-form-option'
                             id='select_table'
                             name='table_id'
                         >
