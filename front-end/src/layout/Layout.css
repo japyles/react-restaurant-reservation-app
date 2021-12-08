@@ -613,6 +613,7 @@ h1, h2, h3, h4, h5 {
    align-items: center;
    background-color: transparent;
    color: #FAFAF8;
+   border-radius: 4%;
    border: 1px solid #ffc807;
    /* border: 1px solid #FAFAF8; */
    width: 90vw;
@@ -669,10 +670,10 @@ h1, h2, h3, h4, h5 {
 
   .reservation {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin-top: 1.3rem;
+    align-items: center; */
+    margin: 1.3rem;
     font-size: 1.3rem;
     /* background-color: #6b4739; */
     /* background-image: linear-gradient(to bottom right, #5d6b39, #6b4739); */
@@ -681,7 +682,8 @@ h1, h2, h3, h4, h5 {
     background-color: transparent;
     color: #FAFAF8;
     /* color: black; */
-    width: 90vw;
+    /* width: 90vw; */
+    border-radius: 4%;
     border: 1px solid #ffc807;
     /* border: 1px solid #fafaf8; */
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
