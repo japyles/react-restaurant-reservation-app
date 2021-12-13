@@ -23,18 +23,21 @@ function Search() {
     <div className='search'>
       <ErrorAlert error={error} />
       <h2>Search</h2>
-      <form name='reservation' onSubmit={handleSearch}>
-        <input
-          type='text'
-          name='mobile_number'
-          placeholder='Enter phone number'
-          onChange={handleChange}
-          value={mobileNumber}
-        ></input>
-        <button type='submit' className='btn searchBtn'>
-          Find
-        <span></span></button>
-      </form>
+      <div className='searchForm'>
+        <form name='reservation' onSubmit={handleSearch}>
+          <input
+            type='text'
+            name='mobile_number'
+            placeholder='Enter phone number'
+            onChange={handleChange}
+            value={mobileNumber}
+          ></input>
+          <button type='submit' className='searchBtn'>
+            Find
+          <span></span></button>
+        </form>
+      </div>
+      
       {list.length ? (
         <div>
           {list.map(res => <Reservation key={res.reservation_id} loadDashboard={handleSearch} reservation={res} />)}

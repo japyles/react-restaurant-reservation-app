@@ -31,7 +31,7 @@ function Reservation ( { reservation, loadDashboard, setReservationsError } ) {
     return (
         <div className='card reservation'>
             <div className='card-body'>
-                <h3 className='card-title'>Status: {reservation.status} - {reservation.first_name}, {reservation.last_name} Party Of: {reservation.people}</h3>
+                <h3 className='card-title resCardTitle'>Status: {reservation.status} - {reservation.first_name} {reservation.last_name} Party Of: {reservation.people}</h3>
                 <div>
                     Date: {reservation.reservation_date}, Time: {reservation.reservation_time}
                 </div>

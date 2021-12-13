@@ -48,72 +48,94 @@ const NewReservation = ({ date }) => {
         <div className='newReservation'>
             <h1>New Reservation</h1>
             <ErrorAlert error={reservationsError} />
-            <form onSubmit={handleSubmit}>
-                <label htmlFor='first_name'>
-                    Enter Your First Name:
-                    <input 
-                        id='first_name'
-                        type='text'
-                        name='first_name'
-                        onChange={handleChange}
-                        value={formData.first_name}
-                        required
-                    />
-                </label>
-                <label htmlFor='last_name'>
-                    Enter Your Last Name:
-                    <input 
-                        id='last_name'
-                        type='text'
-                        name='last_name'
-                        onChange={handleChange}
-                        value={formData.last_name}
-                        required
-                    />
-                </label>
-                <label htmlFor='mobile_number'>
-                    Enter Mobile Phone Number:
-                    <input 
-                        id='mobile_number'
-                        type='tel'
-                        name='mobile_number'
-                        onChange={handleChange}
-                        value={formData.mobile_number}
-                        required
-                    />
-                </label>
-                <label htmlFor='reservation_date'>
-                    Select Reservation Date
-                    <input 
-                        id='reservation_date'
-                        type='date'
-                        name='reservation_date'
-                        onChange={handleChange}
-                        value={formData.reservation_date}
-                        required
-                    />
-                </label>
-                <label htmlFor='reservation_time'>
-                    Select Reservation Time:
-                    <input 
-                        id='reservation_time'
-                        type='time'
-                        name='reservation_time'
-                        onChange={handleChange}
-                        value={formData.reservation_time}
-                        required
-                    />
-                </label>
-                <label htmlFor='people'>
-                    Number of Guests:
-                    <input 
-                        id='people'
-                        type='number'
-                        name='people'
-                        onChange={handleChange}
-                        value={formData.people}
-                    />
-                </label>
+            <form onSubmit={handleSubmit} className='newResForm'>
+                <div className='newResNames'>
+                    <div className='newResFirstName'>
+                        <label htmlFor='first_name'>
+                            First Name
+                            <input 
+                                className='fn-input'
+                                id='first_name'
+                                type='text'
+                                name='first_name'
+                                onChange={handleChange}
+                                value={formData.first_name}
+                                required
+                            />
+                        </label>
+                    </div>
+                    
+                    <div className='newResLastName'>
+                        <label htmlFor='last_name'>
+                            Last Name
+                            <input 
+                                id='last_name'
+                                type='text'
+                                name='last_name'
+                                onChange={handleChange}
+                                value={formData.last_name}
+                                required
+                            />
+                        </label>
+                    </div>
+                </div>
+                
+                <div className='newResMobile'>
+                    <label htmlFor='mobile_number'>
+                        Mobile Phone Number
+                        <input 
+                            id='mobile_number'
+                            type='tel'
+                            name='mobile_number'
+                            onChange={handleChange}
+                            value={formData.mobile_number}
+                            required
+                        />
+                    </label>
+                </div>
+                
+                <div className='newResDateTime'>
+                    <div className='newResDate'>
+                        <label htmlFor='reservation_date'>
+                            Select Reservation Date
+                            <input 
+                                id='reservation_date'
+                                type='date'
+                                name='reservation_date'
+                                onChange={handleChange}
+                                value={formData.reservation_date}
+                                required
+                            />
+                        </label>
+                    </div>
+                    <div className='newResTime'>
+                        <label htmlFor='reservation_time'>
+                            Select Reservation Time
+                            <input 
+                                id='reservation_time'
+                                type='time'
+                                name='reservation_time'
+                                onChange={handleChange}
+                                value={formData.reservation_time}
+                                required
+                            />
+                        </label>
+                    </div>
+                </div>
+
+                <div className='newResPeople'>
+                    <label htmlFor='people'>
+                        Number of Guests:
+                        <input 
+                            id='people'
+                            type='number'
+                            name='people'
+                            onChange={handleChange}
+                            value={formData.people}
+                        />
+                    </label>
+                </div>
+                
                 <div className='newResBtn'>
                     <button className='btn submitBtn' type='submit'>Submit<span></span></button>
                     <button type='cancel' className='btn cancelBtn' onClick={() => history.push(`/dashboard`)}>Cancel<span></span></button>

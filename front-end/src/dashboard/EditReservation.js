@@ -86,7 +86,6 @@ function EditReservation() {
                     </div>
                 </div>
                 
-                
                 <div className='mobileNumber'>
                     <label htmlFor='mobile_number'>
                         Mobile Phone Number

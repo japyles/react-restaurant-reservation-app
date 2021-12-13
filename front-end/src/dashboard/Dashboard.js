@@ -56,12 +56,12 @@ function Dashboard() {
 
       <div className='dashboard-main'>
         <div className='resList'>
-          <h4 className='res'>Reservations</h4>
-          <h4 className='resDate'>{ date }</h4>
+          <h4 className='res'>Reservations For:</h4>
+          <h4 className='dashDate'>{ date }</h4>
           <div className='dashboardBtns'>
-            <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${previous(date)}`)}>Previous Date<span></span></button>
-            <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${today()}`)}>Today<span></span></button>
-            <button className='btn resButton' onClick={() => history.push(`/dashboard?date=${next(date)}`)}>Next Date<span></span></button>
+            <button className='resButton' onClick={() => history.push(`/dashboard?date=${previous(date)}`)}>Previous Date<span></span></button>
+            <button className='resButton' onClick={() => history.push(`/dashboard?date=${today()}`)}>Today<span></span></button>
+            <button className='resButton' onClick={() => history.push(`/dashboard?date=${next(date)}`)}>Next Date<span></span></button>
           </div>
           <div className='resMap'>
             {reservations.map((reservation) => <Reservation key={reservation.reservation_id} reservation={reservation} loadDashboard={loadDashboard} setReservationError={setReservationsError} />)}
@@ -72,10 +72,10 @@ function Dashboard() {
 
         <hr />
 
-      <div className='tableList'>
-        <Tables loadDashboard={loadDashboard} tables={tables} tablesError={tablesError} />
+        <div className='tableList'>
+          <Tables loadDashboard={loadDashboard} tables={tables} tablesError={tablesError} />
+        </div>
       </div>
-    </div>
       
     </main>
   );

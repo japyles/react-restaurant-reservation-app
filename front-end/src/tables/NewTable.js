@@ -40,29 +40,34 @@ function NewTable() {
             <h1>New Table</h1>
             <ErrorAlert error={tableError} />
             <form onSubmit={handleSubmit}>
-                <label htmlFor='table_name'>
-                    Enter the Table's Name:
-                    <input
-                        id='table_name'
-                        type='text'
-                        name='table_name'
-                        onChange={handleChange}
-                        value={formData.table_name}
-                        required
-                    />
-                </label>
-                <br />
-                <label htmlFor='capacity'>
-                    Enter Table's Capacity:
-                    <input
-                        id='capacity'
-                        type='number'
-                        name='capacity'
-                        onChange={handleChange}
-                        value={formData.capacity}
-                        required
-                    />
-                </label>
+                <div className='newTableName'>
+                    <label htmlFor='table_name'>
+                        Enter the Table's Name:
+                        <input
+                            id='table_name'
+                            type='text'
+                            name='table_name'
+                            onChange={handleChange}
+                            value={formData.table_name}
+                            required
+                        />
+                    </label>
+                </div>
+                
+                <div className='newTableCapacity'>
+                    <label htmlFor='capacity'>
+                        Enter Table's Capacity:
+                        <input
+                            id='capacity'
+                            type='number'
+                            name='capacity'
+                            onChange={handleChange}
+                            value={formData.capacity}
+                            required
+                        />
+                    </label>
+                </div>
+                
                 <div className='newTableBtns'>
                     <button type='submit' className='btn submitBtn'>Submit<span></span></button>
                     <button type='cancel' className='btn cancelBtn' onClick={() => history.push(`/dashboard`)}>Cancel<span></span></button>
