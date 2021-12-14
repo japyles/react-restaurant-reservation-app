@@ -17,6 +17,20 @@
 
 > A React app that allows you to make reservations for a restraunt as well as seat guests at available tables
 
+From the main menu you can make a new reservation or a new table. You can also search for an existing reservation. 
+
+![alt text](https://github.com/japyles/react-native-todo-app/blob/main/assets/home-screen.png?raw=true)
+
+
+A text field will show up that will allow you to enter your goal or todo or you can cancel the entry
+
+![alt text](https://github.com/japyles/react-native-todo-app/blob/main/assets/enter-data.png?raw=true)
+
+
+Once you have entered a goal or todo you will see it listed. You can click on the list item to remove it once your goal or todo are finished
+
+![alt text](https://github.com/japyles/react-native-todo-app/blob/main/assets/list-view.png?raw=true)
+
 ## Install
 
 ```sh
