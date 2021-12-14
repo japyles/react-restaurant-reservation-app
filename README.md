@@ -16,20 +16,23 @@
 </p>
 
 > A React app that allows you to make reservations for a restraunt as well as seat guests at available tables
+> 
 
 From the main menu you can make a new reservation or a new table. You can also search for an existing reservation. 
 
-![alt text](https://github.com/japyles/react-restraunt-reservation-app/blob/main/assets/dashboardWithMainMenu.png?raw=true)
+![alt text](https://github.com/japyles/react-restaurant-reservation-app/blob/main/assets/dashboardWithMainMenu.png?raw=true)
+
 
 
 Reservations are listed on the Dashboard for the specified date. 
 
-![alt text](https://github.com/japyles/react-restraunt-reservation-app/blob/main/assets/showingReservation.png?raw=true)
+![alt text](https://github.com/japyles/react-restaurant-reservation-app/blob/main/assets/showingReservation.png?raw=true)
+
 
 
 Below the reservations are listed the tables and whether the table is available to seat guests or not. 
 
-![alt text](https://github.com/japyles/react-restraunt-reservation-app/blob/main/assets/resWithTableList.png?raw=true)
+![alt text](https://github.com/japyles/react-restaurant-reservation-app/blob/main/assets/resWithTableList.png?raw=true)
 
 ## Install
 
