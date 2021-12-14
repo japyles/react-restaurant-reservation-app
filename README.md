@@ -22,12 +22,12 @@ From the main menu you can make a new reservation or a new table. You can also s
 ![alt text](https://github.com/japyles/react-restraunt-reservation-app/blob/main/assets/dashboardWithMainMenu.png?raw=true)
 
 
-A text field will show up that will allow you to enter your goal or todo or you can cancel the entry
+Reservations are listed on the Dashboard for the specified date. 
 
 ![alt text](https://github.com/japyles/react-restraunt-reservation-app/blob/main/assets/showingReservation.png?raw=true)
 
 
-Once you have entered a goal or todo you will see it listed. You can click on the list item to remove it once your goal or todo are finished
+Below the reservations are listed the tables and whether the table is available to seat guests or not. 
 
 ![alt text](https://github.com/japyles/react-restraunt-reservation-app/blob/main/assets/resWithTableList.png?raw=true)
 
