@@ -53,4 +53,3 @@ Copyright © 2021 [John Pyles](https://github.com/japyles).<br />
 This project is [UNLICENSED](https://github.com/Thinkful-Ed/starter-restaurant-reservation/blob/master/LICENSE) licensed.
 
 ***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
