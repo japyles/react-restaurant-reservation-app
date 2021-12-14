@@ -70,7 +70,7 @@ function NewTable() {
                 
                 <div className='newTableBtns'>
                     <button type='submit' className='btn submitBtn'>Submit<span></span></button>
-                    <button type='cancel' className='btn cancelBtn' onClick={() => history.push(`/dashboard`)}>Cancel<span></span></button>
+                    <button type='cancel' className='btn cancelBtn' onClick={() => history.goBack()}>Cancel<span></span></button>
                 </div>
             </form>
         </div>
